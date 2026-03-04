@@ -14,6 +14,11 @@
 </head>
 
 <body>
+  <div id="page-fixed-bg"
+    style="position:fixed;inset:0;z-index:-2;background:url('images/hero_bg.jpg') center 30%/cover no-repeat;"></div>
+  <div id="page-dark-overlay"
+    style="position:fixed;inset:0;z-index:-1;background:linear-gradient(105deg, rgba(11,15,26,0.97) 0%, rgba(11,15,26,0.88) 45%, rgba(11,15,26,0.55) 75%, rgba(11,15,26,0.45) 100%);pointer-events:none;">
+  </div>
 
   <!-- ── Navigation ─────────────────────── -->
   <nav class="nav" id="navbar" aria-label="Main navigation">
@@ -55,8 +60,7 @@
   <main>
 
     <!-- ── Hero ───────────────────────────── -->
-    <section class="hero" aria-label="Hero"
-      style="background-image: linear-gradient(105deg, rgba(11,15,26,0.97) 0%, rgba(11,15,26,0.88) 45%, rgba(11,15,26,0.55) 75%, rgba(11,15,26,0.45) 100%), url('images/hero_bg.jpg'); background-size: cover; background-position: center 30%;">
+    <section class="hero" aria-label="Hero">
       <div class="hero-bg">
         <div class="hero-grid"></div>
         <div class="hero-radial"></div>
