@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insights — Edarta | AI Strategy & Perspectives for SMEs</title>
+    <meta name="description"
+        content="Practical thinking on Agentic AI, strategic AI adoption and real-world deployment for SMEs. Edarta Insights." />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬡</text></svg>" />
+    <style>
+        .insights-page-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .insight-card-large {
+            grid-column: span 3;
+            display: grid;
+            grid-template-columns: 1fr 1.6fr;
+            background: var(--navy-card);
+            border: 1px solid var(--navy-border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .insight-card-large:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-card);
+        }
+
+        .insight-card-large .insight-thumb {
+            height: 100%;
+            min-height: 240px;
+        }
+
+        .filter-bar {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .filter-btn {
+            padding: 8px 18px;
+            border-radius: 100px;
+            border: 1.5px solid var(--navy-border);
+            background: transparent;
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            border-color: var(--indigo);
+            color: var(--indigo-light);
+            background: var(--indigo-glow);
+        }
+
+        @media (max-width: 768px) {
+            .insights-page-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .insight-card-large {
+                grid-column: span 1;
+                grid-template-columns: 1fr;
+            }
+
+            .insight-card-large .insight-thumb {
+                min-height: 180px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="nav" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">Ed<span>.</span>arta</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="has-dropdown">
+                    <a href="services.html">Services <span class="nav-dropdown-arrow">▾</span></a>
+                    <ul class="nav-dropdown">
+                        <li><a href="services.html#agentic"><span class="nav-dropdown-icon">🤖</span>Agentic AI Dev</a>
+                        </li>
+                        <li><a href="services.html#integration"><span class="nav-dropdown-icon">🔗</span>AI
+                                Integration</a></li>
+                        <li><a href="services.html#consulting"><span class="nav-dropdown-icon">🧭</span>AI
+                                Consulting</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="insights.html" class="active">Insights</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-cta"><a href="contact.html" class="btn btn-primary">Book a Call</a></div>
+            <button class="nav-toggle" id="nav-toggle"
+                aria-label="Toggle mobile menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <nav class="nav-mobile" id="nav-mobile">
+        <a href="index.html">Home</a><a href="services.html">Services</a><a href="about.html">About</a>
+        <a href="insights.html">Insights</a><a href="contact.html">Contact</a>
+        <a href="contact.html" class="btn btn-primary">Book a Call</a>
+    </nav>
+
+    <main>
+        <section class="page-hero">
+            <div class="page-hero-content">
+                <span class="section-label">Insights</span>
+                <h1>Thinking on AI for SMEs</h1>
+                <p>Practical perspectives on Agentic AI, strategy and real-world deployment — written for business
+                    leaders, not data scientists.</p>
+            </div>
+        </section>
+
+        <section style="padding-top: 20px;">
+            <div class="container">
+                <div class="filter-bar fade-up">
+                    <button class="filter-btn active">All Topics</button>
+                    <button class="filter-btn">Strategy</button>
+                    <button class="filter-btn">Leadership</button>
+                    <button class="filter-btn">Deployment</button>
+                    <button class="filter-btn">Agentic AI</button>
+                </div>
+
+                <div class="insights-page-grid">
+                    <!-- Featured -->
+                    <a href="#agentic-different" class="insight-card-large fade-up" id="insight-featured">
+                        <div class="insight-thumb">
+                            <img src="images/insight_agentic.png" alt="Agentic AI vs Traditional Automation"
+                                style="width:100%;height:100%;object-fit:cover;" />
+                        </div>
+                        <div class="insight-body"
+                            style="padding: 40px; display:flex; flex-direction:column; justify-content:center;">
+                            <div style="display:flex; gap:8px; margin-bottom:16px;"><span
+                                    class="tag">Strategy</span><span class="tag teal">Agentic AI</span></div>
+                            <h2 id="agentic-different" class="insight-title"
+                                style="font-size:1.5rem; margin-bottom:14px; line-height:1.3;">Why Agentic AI is
+                                Different from Traditional Automation</h2>
+                            <p class="insight-excerpt" style="font-size:0.95rem; margin-bottom:24px;">Traditional
+                                automation executes fixed rules. Agentic AI reasons, adapts and acts. This distinction
+                                matters enormously for how you should think about your AI investments and what business
+                                transformation is actually possible.</p>
+                            <div style="display:flex; align-items:center; gap:16px;">
+                                <div class="testimonial-avatar"
+                                    style="width:38px;height:38px;font-size:0.8rem;flex-shrink:0;">E.</div>
+                                <div>
+                                    <div
+                                        style="font-family:var(--font-heading);font-weight:600;font-size:0.85rem;color:var(--text-primary);">
+                                        Edarta Team</div>
+                                    <div class="insight-meta">March 2026 · 5 min read</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#executive-questions" class="insight-card fade-up fade-up-delay-1" id="insight-2">
+                        <div class="insight-thumb">
+                            <img src="images/insight_executive.png" alt="Executive AI questions"
+                                style="width:100%;height:100%;object-fit:cover;" />
+                        </div>
+                        <div class="insight-body">
+                            <div class="insight-tag">Leadership</div>
+                            <h3 id="executive-questions" class="insight-title">5 Questions Every Business Leader Should
+                                Ask Before Investing in AI</h3>
+                            <p class="insight-excerpt">Cut through the hype. These five questions help you evaluate any
+                                AI investment clearly and with confidence.</p>
+                            <div class="insight-meta">February 2026 · 6 min read</div>
+                        </div>
+                    </a>
+
+                    <a href="#pilot-to-production" class="insight-card fade-up fade-up-delay-2" id="insight-3">
+                        <div class="insight-thumb">
+                            <img src="images/insight_pilot.png" alt="Pilot to Production"
+                                style="width:100%;height:100%;object-fit:cover;" />
+                        </div>
+                        <div class="insight-body">
+                            <div class="insight-tag">Deployment</div>
+                            <h3 id="pilot-to-production" class="insight-title">From Pilot to Production: Lessons from
+                                Real AI Deployments</h3>
+                            <p class="insight-excerpt">Most AI pilots never reach production. Here's what actually
+                                separates projects that deliver from those that don't.</p>
+                            <div class="insight-meta">January 2026 · 7 min read</div>
+                        </div>
+                    </a>
+
+                    <a href="#rag-explained" class="insight-card fade-up fade-up-delay-3" id="insight-4">
+                        <div class="insight-thumb">
+                            <div class="insight-thumb-inner"
+                                style="background:linear-gradient(135deg,rgba(45,212,191,0.2),rgba(11,15,26,1));">📚
+                            </div>
+                        </div>
+                        <div class="insight-body">
+                            <div class="insight-tag">Agentic AI</div>
+                            <h3 id="rag-explained" class="insight-title">RAG Explained for Non-Technical Leaders</h3>
+                            <p class="insight-excerpt">Retrieval-Augmented Generation is one of the most valuable AI
+                                patterns for SMEs — here's what it is without the jargon.</p>
+                            <div class="insight-meta">December 2025 · 4 min read</div>
+                        </div>
+                    </a>
+
+                    <a href="#ai-readiness" class="insight-card fade-up fade-up-delay-1" id="insight-5">
+                        <div class="insight-thumb">
+                            <div class="insight-thumb-inner"
+                                style="background:linear-gradient(135deg,rgba(99,102,241,0.25),rgba(11,15,26,1));">📋
+                            </div>
+                        </div>
+                        <div class="insight-body">
+                            <div class="insight-tag">Strategy</div>
+                            <h3 id="ai-readiness" class="insight-title">Is Your Business Actually Ready for AI? A
+                                Practical Self-Assessment</h3>
+                            <p class="insight-excerpt">Data quality, process clarity, team culture — AI readiness is
+                                about more than budget. Use this framework to assess where you stand.</p>
+                            <div class="insight-meta">November 2025 · 8 min read</div>
+                        </div>
+                    </a>
+
+                    <a href="#choosing-llm" class="insight-card fade-up fade-up-delay-2" id="insight-6">
+                        <div class="insight-thumb">
+                            <div class="insight-thumb-inner"
+                                style="background:linear-gradient(135deg,rgba(99,102,241,0.15),rgba(45,212,191,0.2),rgba(11,15,26,1));">
+                                ⚡</div>
+                        </div>
+                        <div class="insight-body">
+                            <div class="insight-tag">Deployment</div>
+                            <h3 id="choosing-llm" class="insight-title">GPT-4, Claude or Gemini? How to Choose the Right
+                                AI Model for Your Business</h3>
+                            <p class="insight-excerpt">The right model depends on your use case, not the headlines. A
+                                practical guide to choosing for SME applications.</p>
+                            <div class="insight-meta">October 2025 · 5 min read</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding: 80px 24px 100px;">
+            <div class="cta-banner fade-up">
+                <h2>Stay ahead of the curve</h2>
+                <p>Get our monthly roundup of practical AI insights for SMEs — no hype, just what's useful.</p>
+                <form id="newsletter-form"
+                    style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px;position:relative;z-index:1;"
+                    onsubmit="handleSubmit(event)">
+                    <input type="email" placeholder="your@email.com" required style="width:280px;border-radius:10px;"
+                        aria-label="Email address" />
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+                <p id="nl-success"
+                    style="display:none;color:var(--teal);margin-top:16px;position:relative;z-index:1;font-size:0.9rem;">
+                    ✓ You're subscribed! Welcome aboard.</p>
+                <p style="font-size:0.78rem;color:var(--text-muted);margin-top:16px;position:relative;z-index:1;">No
+                    spam. Unsubscribe at any time.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="nav-logo">Ed<span>.</span>arta</span>
+                    <p>Strategic Agentic AI development, integration and consulting for ambitious small and medium
+                        businesses.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html#agentic">Agentic AI Development</a></li>
+                        <li><a href="services.html#integration">AI Integration</a></li>
+                        <li><a href="services.html#consulting">AI Consulting</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="insights.html">Insights</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Get in Touch</h4>
+                    <ul>
+                        <li><a href="contact.html">Book a Call</a></li>
+                        <li><a href="mailto:hello@edarta.com">hello@edarta.com</a></li>
+                        <li><a href="https://linkedin.com/company/edarta" target="_blank" rel="noopener">LinkedIn</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Edarta. All rights reserved.</span>
+                <div class="footer-socials"><a href="https://linkedin.com/company/edarta" target="_blank" rel="noopener"
+                        class="footer-social-link" aria-label="LinkedIn">in</a><a href="mailto:hello@edarta.com"
+                        class="footer-social-link" aria-label="Email">✉</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => { document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); });
+        });
+        function handleSubmit(e) {
+            e.preventDefault();
+            document.getElementById('newsletter-form').style.display = 'none';
+            document.getElementById('nl-success').style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>
