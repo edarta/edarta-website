@@ -156,7 +156,11 @@
                     <!-- Right: form -->
                     <div class="fade-up fade-up-delay-2">
                         <div class="form-card">
-                            <form id="contact-form" novalidate>
+                            <form id="contact-form" name="contact" method="POST" data-netlify="true"
+                                netlify-honeypot="bot-field" novalidate>
+                                <input type="hidden" name="form-name" value="contact" />
+                                <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label>
+                                </p>
                                 <div class="form-row">
                                     <div class="form-group">
                                         <label for="first-name">First name</label>
@@ -266,6 +270,46 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        const form = document.getElementById('contact-form');
+        const formCard = form.closest('.form-card');
+        const successEl = document.getElementById('form-success');
+
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            // Basic client-side validation
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            const submitBtn = form.querySelector('#contact-submit');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = 'Sending…';
+            submitBtn.disabled = true;
+
+            try {
+                const formData = new FormData(form);
+                const response = await fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
+                });
+
+                if (response.ok) {
+                    form.style.display = 'none';
+                    successEl.style.display = 'flex';
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (err) {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                alert('Something went wrong. Please try again or email us at hello@edarta.com.');
+            }
+        });
+    </script>
 </body>
 
 </html>
