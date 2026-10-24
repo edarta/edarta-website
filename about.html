@@ -8,91 +8,69 @@
     <meta name="description"
         content="Edarta is a strategic AI consultancy and development partner focused on helping SMEs harness the power of Agentic AI — practically and profitably." />
     <link rel="canonical" href="https://edarta.com/about" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬡</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%234FA8FF'/%3E%3Cstop offset='1' stop-color='%23C59CFF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='26' height='26' rx='7' fill='%23050D24'/%3E%3Cpath fill='url(%23g)' d='M5 8.4 8.4 5H21v4.4H10.2v1.9h9.4v3.7h-9.4v1.9H21V21H5z'/%3E%3C/svg%3E" />
+  <meta name="theme-color" content="#050D24" />
 </head>
 
 <body>
-    <div id="page-fixed-bg"
-        style="position:fixed;inset:0;z-index:-2;background:url('images/about_bg.jpg') center 30%/cover no-repeat;pointer-events:none;">
-    </div>
-    <div id="page-dark-overlay"
-        style="position:fixed;inset:0;z-index:-1;background:linear-gradient(105deg, rgba(11,15,26,0.80) 0%, rgba(11,15,26,0.70) 45%, rgba(11,15,26,0.35) 75%, rgba(11,15,26,0.25) 100%);pointer-events:none;">
-    </div>
 
-    <!-- ── Navigation ─────────────────────── -->
-    <nav class="nav" id="navbar">
-        <div class="nav-inner">
-            <a href="index.html" class="nav-logo">Ed<span>.</span>arta</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li class="has-dropdown">
-                    <a href="services.html">Services <span class="nav-dropdown-arrow">▾</span></a>
-                    <ul class="nav-dropdown">
-                        <li><a href="services.html#agentic"><span class="nav-dropdown-icon">🤖</span>Agentic AI Dev</a>
-                        </li>
-                        <li><a href="services.html#integration"><span class="nav-dropdown-icon">🔗</span>AI
-                                Integration</a></li>
-                        <li><a href="services.html#consulting"><span class="nav-dropdown-icon">🧭</span>AI
-                                Consulting</a></li>
-                    </ul>
-                </li>
-                <li><a href="about.html" class="active">About</a></li>
-                <li><a href="insights.html">Insights</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div class="nav-cta">
-                <a href="contact.html" class="btn btn-primary">Book a Call</a>
-            </div>
-            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle mobile menu">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-    </nav>
-    <nav class="nav-mobile" id="nav-mobile">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="about.html">About</a>
-        <a href="insights.html">Insights</a>
-        <a href="contact.html">Contact</a>
-        <a href="contact.html" class="btn btn-primary">Book a Call</a>
-    </nav>
+    <nav class="nav" id="navbar" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Edarta home"><svg class="brand-mark" viewBox="0 0 26 26" aria-hidden="true"><path fill="currentColor" d="M3 7.2 7.2 3H23v5.4H9.6v2.3h11.6v4.6H9.6v2.3H23V23H3z"/></svg><span class="brand-word">EDARTA</span></a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li class="has-dropdown">
+          <a href="services.html">Services <svg class="nav-dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
+          <ul class="nav-dropdown">
+            <li><a href="services.html#agentic">Agentic AI development<small>Agents that reason, plan and act</small></a></li>
+            <li><a href="services.html#integration">AI integration<small>AI inside the tools you already use</small></a></li>
+            <li><a href="services.html#consulting">Strategic AI consulting<small>A roadmap grounded in ROI</small></a></li>
+          </ul>
+        </li>
+        <li><a href="about.html" class="active" aria-current="page">About</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-outline">Book a Call <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <nav class="nav-mobile" id="nav-mobile" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="about.html" class="active" aria-current="page">About</a>
+    <a href="insights.html">Insights</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn btn-primary">Book a Call <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </nav>
 
     <main>
 
         <!-- ── Page Hero ──────────────────────── -->
-        <section class="hero" aria-label="About Hero">
-            <div class="hero-bg">
-                <div class="hero-grid"></div>
-                <div class="hero-radial"></div>
-                <div class="hero-radial-2"></div>
-            </div>
-            <div class="hero-content">
-                <div class="hero-text">
-                    <div class="hero-badge">
-                        <span class="hero-badge-dot"></span>
-                        About Edarta
-                    </div>
-                    <h1 class="hero-title">Practitioners, <span class="accent">not&nbsp;theorists</span></h1>
-                    <p class="hero-subtitle">
-                        We don't just advise on AI — we build it. Edarta was founded to bridge the gap between AI hype
-                        and
-                        real business outcomes for small and medium enterprises.
-                    </p>
-                    <div class="hero-actions">
-                        <a href="contact.html" class="btn btn-primary" id="about-hero-cta">
-                            Book a Discovery Call
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2.5">
-                                <path d="M5 12h14M12 5l7 7-7 7" />
-                            </svg>
-                        </a>
-                        <a href="services.html" class="btn btn-outline">Explore Services</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <section class="hero hero--page" aria-label="About" style="--hero-pos:70% 50%;--hero-pos-sm:82% 50%">
+      <img class="hero-media" src="images/hero_about-sm.jpg"
+        srcset="images/hero_about-sm.jpg 1200w, images/hero_about.jpg 2400w" sizes="100vw" alt=""
+        fetchpriority="high" decoding="async" />
+      <div class="hero-inner">
+        <div class="hero-text">
+          <p class="hero-eyebrow">About Edarta</p>
+          <h1 class="hero-title">Practitioners,<br /><span class="grad">not</span> theorists</h1>
+          <p class="hero-subtitle">We don’t just advise on AI — we build it. Edarta was founded to bridge the gap between AI hype and real business outcomes for small and medium enterprises.</p>
+          <div class="hero-actions">
+            <a href="contact.html" class="btn btn-primary" id="about-hero-cta">Book a Discovery Call <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="services.html" class="btn-circle"><span class="btn-circle-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>Explore Services</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
 
         <!-- ── Mission ────────────────────────── -->
@@ -101,7 +79,7 @@
                 <div class="about-grid">
                     <div class="about-visual fade-up">
                         <div class="about-img-placeholder" style="padding:0;overflow:hidden;">
-                            <img src="images/about_brain.png" alt="Crystal brain representing AI intelligence"
+                            <img loading="lazy" src="images/about_brain.png" alt="Crystal brain representing AI intelligence"
                                 style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-lg);" />
                         </div>
 
@@ -122,7 +100,7 @@
 
                         <div class="values-list">
                             <div class="value-item">
-                                <div class="value-icon">⚡</div>
+                                <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
                                 <div>
                                     <div class="value-title">Speed to value</div>
                                     <p class="value-text">We move fast. Every engagement is designed to deliver
@@ -130,7 +108,7 @@
                                 </div>
                             </div>
                             <div class="value-item">
-                                <div class="value-icon">🎯</div>
+                                <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
                                 <div>
                                     <div class="value-title">Business-first thinking</div>
                                     <p class="value-text">Technology is the means, not the end. We always start from
@@ -138,7 +116,7 @@
                                 </div>
                             </div>
                             <div class="value-item">
-                                <div class="value-icon">🤝</div>
+                                <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
                                 <div>
                                     <div class="value-title">Honest advice</div>
                                     <p class="value-text">We'll tell you when AI isn't the right answer. Our reputation
@@ -164,41 +142,41 @@
 
                 <div class="services-grid">
                     <div class="card fade-up fade-up-delay-1">
-                        <div class="card-icon">🔨</div>
+                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"/></svg></div>
                         <h3 class="card-title">We build what we advise</h3>
                         <p class="card-text">Unlike pure consultancies that hand over a slide deck and leave, we stay
                             involved through implementation. Our advice is always grounded in what we know how to build.
                         </p>
                     </div>
                     <div class="card fade-up fade-up-delay-2">
-                        <div class="card-icon">🏢</div>
+                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></svg></div>
                         <h3 class="card-title">Built for SME scale</h3>
                         <p class="card-text">Enterprise AI partners charge enterprise prices and move at enterprise
                             speed. We're designed for the pace, budget and decision-making reality of small and medium
                             businesses.</p>
                     </div>
                     <div class="card fade-up fade-up-delay-3">
-                        <div class="card-icon">📡</div>
+                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5M19.1 4.9C23 8.8 23 15.1 19.1 19"/><circle cx="12" cy="12" r="2"/></svg></div>
                         <h3 class="card-title">Always current</h3>
                         <p class="card-text">The AI landscape evolves weekly. We stay at the frontier so you don't have
                             to — and make sure your solutions use the best available tools, not last year's approach.
                         </p>
                     </div>
                     <div class="card fade-up fade-up-delay-1">
-                        <div class="card-icon">🧩</div>
+                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg></div>
                         <h3 class="card-title">Truly tailored</h3>
                         <p class="card-text">No templates, no cookie-cutter playbooks. Every project is shaped around
                             your specific context, goals and constraints. We take the time to understand before we
                             build.</p>
                     </div>
                     <div class="card fade-up fade-up-delay-2">
-                        <div class="card-icon">🎓</div>
+                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
                         <h3 class="card-title">We build your capability</h3>
                         <p class="card-text">Our goal is to leave you more capable than when we arrived — not to create
                             dependency. We document, train and involve your team throughout every engagement.</p>
                     </div>
                     <div class="card fade-up fade-up-delay-3">
-                        <div class="card-icon">📊</div>
+                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 16v-5M12 16V8M17 16V7"/></svg></div>
                         <h3 class="card-title">Results-focused</h3>
                         <p class="card-text">Every engagement has clear, measurable success criteria agreed upfront. We
                             hold ourselves accountable to business outcomes — productivity, revenue, cost savings — not
@@ -219,31 +197,23 @@
                 </div>
 
                 <div style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px;">
-                    <div class="card fade-up" style="padding: 36px; border-left: 3px solid var(--indigo);">
-                        <h3
-                            style="font-family: var(--font-heading); font-size: 1.05rem; margin-bottom: 10px; color: var(--text-primary);">
-                            AI is a tool, not a strategy</h3>
-                        <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.75;">Deploying AI for
+                    <div class="belief">
+                        <h3>AI is a tool, not a strategy</h3>
+                        <p>Deploying AI for
                             the sake of it creates complexity without value. Every AI investment should trace directly
                             back to a specific business problem or opportunity. We help you make that connection
                             clearly.</p>
                     </div>
-                    <div class="card fade-up fade-up-delay-1"
-                        style="padding: 36px; border-left: 3px solid var(--teal);">
-                        <h3
-                            style="font-family: var(--font-heading); font-size: 1.05rem; margin-bottom: 10px; color: var(--text-primary);">
-                            People make AI work, not the other way around</h3>
-                        <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.75;">The best AI
+                    <div class="belief">
+                        <h3>People make AI work, not the other way around</h3>
+                        <p>The best AI
                             systems fail when teams don't adopt them. Change management, clear communication and proper
                             training are as important as the technology itself. We treat people as part of the solution.
                         </p>
                     </div>
-                    <div class="card fade-up fade-up-delay-2"
-                        style="padding: 36px; border-left: 3px solid var(--indigo);">
-                        <h3
-                            style="font-family: var(--font-heading); font-size: 1.05rem; margin-bottom: 10px; color: var(--text-primary);">
-                            Start small, prove fast, then scale</h3>
-                        <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.75;">Grand AI
+                    <div class="belief">
+                        <h3>Start small, prove fast, then scale</h3>
+                        <p>Grand AI
                             transformation programmes are where ambition meets failure. We believe in targeted,
                             fast-to-value pilots that build conviction and momentum — then scale what works, stop what
                             doesn't.</p>
@@ -270,7 +240,7 @@
         <div class="footer-inner">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <span class="nav-logo">Ed<span>.</span>arta</span>
+                    <a href="index.html" class="nav-logo" aria-label="Edarta home"><svg class="brand-mark" viewBox="0 0 26 26" aria-hidden="true"><path fill="currentColor" d="M3 7.2 7.2 3H23v5.4H9.6v2.3h11.6v4.6H9.6v2.3H23V23H3z"/></svg><span class="brand-word">EDARTA</span></a>
                     <p>Strategic Agentic AI development, integration and consulting for ambitious small and medium
                         businesses.</p>
                 </div>
@@ -304,8 +274,8 @@
                 <span>© 2026 Edarta. All rights reserved.</span>
                 <div class="footer-socials">
                     <a href="https://linkedin.com/company/edarta" target="_blank" rel="noopener"
-                        class="footer-social-link" aria-label="LinkedIn">in</a>
-                    <a href="mailto:hello@edarta.com" class="footer-social-link" aria-label="Email">✉</a>
+                        class="footer-social-link" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+                    <a href="mailto:hello@edarta.com" class="footer-social-link" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a>
                 </div>
             </div>
         </div>

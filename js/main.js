@@ -1,86 +1,52 @@
-// ── Scroll-triggered animations ────────────
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-// ── Sticky nav ──────────────────────────────
+// ── Nav: solid background once the page scrolls ──
 const nav = document.querySelector('.nav');
 if (nav) {
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 20);
-  });
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 24);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
 }
 
-// ── Mobile nav toggle ───────────────────────
+// ── Mobile menu ──
 const navToggle = document.querySelector('.nav-toggle');
 const navMobile = document.querySelector('.nav-mobile');
 if (navToggle && navMobile) {
-  navToggle.addEventListener('click', () => {
-    navToggle.classList.toggle('open');
-    navMobile.classList.toggle('open');
-    document.body.style.overflow = navMobile.classList.contains('open') ? 'hidden' : '';
-  });
-  navMobile.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navToggle.classList.remove('open');
-      navMobile.classList.remove('open');
-      document.body.style.overflow = '';
-    });
-  });
+  const setOpen = (open) => {
+    navToggle.classList.toggle('open', open);
+    navMobile.classList.toggle('open', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+    navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+  navToggle.addEventListener('click', () => setOpen(!navMobile.classList.contains('open')));
+  navMobile.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
 }
 
-// ── Active nav link ─────────────────────────
-const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-document.querySelectorAll('.nav-links a, .nav-mobile a').forEach(link => {
-  const href = link.getAttribute('href');
-  if (href === currentPath || (currentPath === '' && href === 'index.html')) {
-    link.classList.add('active');
-  }
-});
+// ── Hero stat counters (skipped when reduced motion is preferred) ──
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// ── Animated counter ────────────────────────
 function animateCounter(el) {
   const target = parseInt(el.dataset.target, 10);
-  const duration = 1800;
-  const step = target / (duration / 16);
-  let current = 0;
-  const timer = setInterval(() => {
-    current = Math.min(current + step, target);
-    el.textContent = Math.floor(current) + (el.dataset.suffix || '');
-    if (current >= target) clearInterval(timer);
-  }, 16);
+  const suffix = el.dataset.suffix || '';
+  const duration = 1600;
+  const start = performance.now();
+  const tick = (now) => {
+    const t = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - t, 3);
+    el.textContent = Math.round(target * eased) + suffix;
+    if (t < 1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
 }
 
-const counters = document.querySelectorAll('[data-target]');
-const counterObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting && !entry.target.dataset.animated) {
-      entry.target.dataset.animated = 'true';
-      animateCounter(entry.target);
-    }
-  });
-}, { threshold: 0.5 });
-counters.forEach(c => counterObserver.observe(c));
-
-// ── Contact form ────────────────────────────
-const contactForm = document.getElementById('contact-form');
-if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const submitBtn = contactForm.querySelector('.form-submit');
-    submitBtn.textContent = 'Sending…';
-    submitBtn.disabled = true;
-
-    setTimeout(() => {
-      contactForm.style.display = 'none';
-      const successMsg = document.getElementById('form-success');
-      if (successMsg) successMsg.style.display = 'block';
-    }, 1200);
-  });
+if (!reduceMotion && 'IntersectionObserver' in window) {
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.dataset.animated) {
+        entry.target.dataset.animated = 'true';
+        animateCounter(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('[data-target]').forEach(c => counterObserver.observe(c));
 }
